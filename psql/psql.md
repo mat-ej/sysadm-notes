@@ -1,6 +1,12 @@
 # PSQL
 
 
+#### basics 
+    \l - list tables
+    \c <db> - connect
+    \du - roles
+
+
 #### Installation using docker
     docker run --name postgresql -e POSTGRES_USER=myusername -e POSTGRES_PASSWORD=mypassword -p 5432:5432 -v /data:/var/lib/postgresql/data -d postgres
     docker ps -a
@@ -9,6 +15,10 @@
     
     # remove unnecessary databases
     alter database template0 is_template false;
+
+
+#### Server to server pg dump
+    pg_dump -C -h localhost -U localuser dbname | psql -h remotehost -U remoteuser dbname
 
 
 #### CLI through ssh tunnel

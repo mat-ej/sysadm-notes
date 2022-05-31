@@ -1,5 +1,8 @@
 # Byte-compiled / optimized / DLL files
 .idea
+passwords.md
+
+
 __pycache__/
 *.py[cod]
 *$py.class
