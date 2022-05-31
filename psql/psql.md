@@ -5,16 +5,24 @@
     \l - list tables
     \c <db> - connect
     \du - roles
+    CREATE ROLE souregus LOGIN SUPERUSER PASSWORD 'passwordstring';
+
+    mlcodav
+    
 
 
 #### Installation using docker
-    docker run --name postgresql -e POSTGRES_USER=myusername -e POSTGRES_PASSWORD=mypassword -p 5432:5432 -v /data:/var/lib/postgresql/data -d postgres
+    docker run --name postgresql -e POSTGRES_USER=bettor -e POSTGRES_PASSWORD=mypassword -p 5432:5432 -v /data:/var/lib/postgresql/data -d postgres
     docker ps -a
     docker start postgresql
     docker inspect postgresql -f "{{json .NetworkSettings.Networks }}"
     
     # remove unnecessary databases
     alter database template0 is_template false;
+
+    docker kill $(docker ps -q) # WARNING KILLS OTHER DOCKERS AS WELL
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q)
 
 
 #### Server to server pg dump
